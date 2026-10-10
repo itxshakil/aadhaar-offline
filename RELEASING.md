@@ -39,17 +39,10 @@ JSON
 Pull requests can only merge when the `CI passed` job is green, which lets Dependabot's grouped PRs merge themselves.
 Admins (actor 5) can still push straight to `main`.
 
-6. The `CHANGELOG_TOKEN` secret.
-   On a personal repository a ruleset cannot let GitHub Actions bypass the required check, so the changelog commit is pushed with an admin's token instead.
-   Create a [fine-grained token](https://github.com/settings/personal-access-tokens/new) as `itxshakil` with access to this repository only and the permission "Contents: Read and write", then:
-
-```bash
-gh secret set CHANGELOG_TOKEN --repo itxshakil/aadhaar-offline
-```
-
-   Renew it before it expires; the `Update changelog` workflow fails with a clear error when it is missing.
-
 ## Each release
+
+Releases are manual: nothing is published or tagged automatically.
+The GitHub release notes are the record of changes; `CHANGELOG.md` is not updated automatically.
 
 1. Merge pull requests with intent labels.
    `release-drafter` keeps a draft release up to date and picks the next version from those labels.
@@ -57,9 +50,7 @@ gh secret set CHANGELOG_TOKEN --repo itxshakil/aadhaar-offline
 3. Open the draft on GitHub, check the version and notes, and publish it.
    Publishing creates the tag.
 4. The `Release` workflow checks that the tag installs cleanly without dev dependencies.
-5. The `Update changelog` workflow writes the release notes into `CHANGELOG.md` and commits them to `main`.
-   Never edit `CHANGELOG.md` by hand.
-6. Packagist picks up the new tag through the webhook.
+5. Packagist picks up the new tag through the webhook.
    Check that it appears on https://packagist.org/packages/itxshakil/aadhaar-offline.
 
 ## Before 1.0.0
