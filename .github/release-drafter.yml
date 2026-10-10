@@ -3,6 +3,8 @@ tag-template: "v$RESOLVED_VERSION"
 
 # The next version and the release-note sections come from intent labels, applied
 # by hand: a path says where a change is (see labeler.yml), not what it does.
+# A pull request appears in every category it has a label for, so only intent
+# labels map to categories; anything else is listed under "Changes".
 version-resolver:
     major:
         labels:
@@ -40,14 +42,6 @@ categories:
     - title: "📚 Documentation"
       labels:
           - documentation
-
-    - title: "🧹 Maintenance"
-      collapse-after: 5
-      labels:
-          - tests
-          - ci
-          - tooling
-          - meta
 
 change-template: "- $TITLE (#$NUMBER) @$AUTHOR"
 

@@ -29,7 +29,7 @@ tests:
                 - src/Testing/**
                 - phpunit.xml.dist
 
-documentation:
+docs-area:
     - changed-files:
           - any-glob-to-any-file:
                 - README.md
@@ -49,7 +49,7 @@ tooling:
                 - pint.json
                 - .editorconfig
 
-dependencies:
+composer:
     - changed-files:
           - any-glob-to-any-file:
                 - composer.json
@@ -61,7 +61,7 @@ meta:
                 - .gitignore
                 - .gitattributes
 
-# These are area labels for triage only. Release notes and the next version come
+# These are area labels for triage only; none of them is used by release-drafter. Release notes and the next version come
 # from intent labels applied by hand (see release-drafter.yml): feature, bug,
 # security, breaking-change, skip-changelog. A path says where a change is, not
 # what it does: a refactor in src/Security is not a security fix.
