@@ -8,6 +8,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-10-10
+
+No code changes; the installed package is the same as 0.1.0.
+
+### Changed
+
+- Release notes list each pull request once, under the section of its intent label.
+- Releases and `CHANGELOG.md` are maintained by hand; the automatic changelog workflow was removed.
+- `CHANGELOG.md` now matches the published releases.
+
 ## [0.1.0] - 2026-10-10
 
 First release.
@@ -29,5 +39,6 @@ The Offline e-KYC ZIP path was checked against a real 2026 UIDAI download and UI
 - **`onVerified` / `onRejected` callbacks** for audit logging.
 - **Testing helpers**: `Testing\Fixtures` builds signed synthetic ZIPs, XML and Secure QR codes, and `Testing\OfflineKycFactory` builds payload objects.
 
-[Unreleased]: https://github.com/itxshakil/aadhaar-offline/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/itxshakil/aadhaar-offline/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/itxshakil/aadhaar-offline/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/itxshakil/aadhaar-offline/releases/tag/v0.1.0
