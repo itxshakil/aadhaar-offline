@@ -1,0 +1,27 @@
+version: 2
+
+updates:
+  # One grouped PR a month for every GitHub Action, instead of one PR per action.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    labels:
+      - dependencies
+      - ci
+    groups:
+      github-actions:
+        patterns: ["*"]
+
+  # Dev tooling is grouped and merges itself when CI passes (see dependabot-auto-merge.yml).
+  # Runtime dependencies (robrichards/xmlseclibs) get their own PRs
+  # and always wait for a human: xmlseclibs does the signature checking.
+  - package-ecosystem: composer
+    directory: /
+    schedule:
+      interval: monthly
+    labels:
+      - dependencies
+    groups:
+      composer-dev:
+        dependency-type: development

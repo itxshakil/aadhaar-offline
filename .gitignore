@@ -1,0 +1,18 @@
+composer.lock
+vendor
+tests/temp
+.idea
+.phpunit.cache
+.phpunit.result.cache
+.php-cs-fixer.cache
+.phpstan
+.junie
+.claude
+.env
+plans/
+build/
+.DS_Store
+
+# Real Offline e-KYC files used for local testing. Never commit.
+/offlineaadhaar*
+*.zip

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/itxshakil/aadhaar-offline/security/advisories/new
+    about: Please report security issues privately, without real Aadhaar data.
+  - name: Laravel integration
+    url: https://github.com/itxshakil/laravel-aadhaar-offline/issues
+    about: Issues with the facade, validation rules, Artisan commands or events belong to the Laravel package.

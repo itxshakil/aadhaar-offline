@@ -1,0 +1,55 @@
+name: Bug report
+description: Something doesn't work as documented
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Never attach or paste a real Offline e-KYC file, XML, Secure QR code, Aadhaar number, name, photo or share code.**
+        Issues are public. Reproduce with synthetic payloads from `Shakil\AadhaarOffline\Testing\Fixtures` or `OfflineKycFactory`.
+        Using Laravel? Report it at [itxshakil/laravel-aadhaar-offline](https://github.com/itxshakil/laravel-aadhaar-offline/issues) and include `php artisan aadhaar-offline:check` output.
+        Security issues go to a [private advisory](https://github.com/itxshakil/aadhaar-offline/security/advisories/new) instead.
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Personal data
+      options:
+        - label: This report contains no real Aadhaar data, files, QR codes or share codes.
+          required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      description: Package and PHP versions, and your framework if any
+      placeholder: aadhaar-offline 0.1.0, PHP 8.4, Symfony 7.3
+    validations:
+      required: true
+  - type: dropdown
+    id: payload
+    attributes:
+      label: Payload type
+      options:
+        - Offline e-KYC ZIP
+        - Offline e-KYC XML (e.g. from a KYC vendor)
+        - Secure QR code
+        - Not payload-related
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+      description: Include the exception class and message. They never contain personal data.
+    validations:
+      required: true
+  - type: textarea
+    id: certs
+    attributes:
+      label: Trusted certificates
+      description: "`print_r($reader->certificates()->describe())`: subjects, fingerprints and expiry dates. Paths can be shortened."
+      render: text
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: A failing test using `Fixtures` or `OfflineKycFactory` is ideal.

@@ -1,0 +1,27 @@
+# The phpstan/extension-installer plugin is not used, so rule sets must be included explicitly.
+includes:
+    - vendor/phpstan/phpstan-strict-rules/rules.neon
+    - vendor/phpstan/phpstan-deprecation-rules/rules.neon
+
+parameters:
+    level: max
+
+    paths:
+        - src
+        - tests
+
+    tmpDir: .phpstan/cache
+
+    treatPhpDocTypesAsCertain: false
+
+    inferPrivatePropertyTypeFromConstructor: true
+
+    reportUnmatchedIgnoredErrors: false
+
+    editorUrl: "phpstorm://open?file=%f&line=%l"
+
+    ignoreErrors:
+        # $this->assert*() is idiomatic PHPUnit; strict-rules would demand self::assert*().
+        -
+            identifier: staticMethod.dynamicCall
+            path: tests/*

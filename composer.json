@@ -1,0 +1,110 @@
+{
+    "name": "itxshakil/aadhaar-offline",
+    "description": "Read and verify Aadhaar Offline e-KYC (share-code ZIP / signed XML) and Secure QR codes in any PHP app: UIDAI signature checks against pinned certificates, mobile/email hash matching, freshness rules and privacy-safe defaults. No framework required.",
+    "keywords": [
+        "php",
+        "aadhaar",
+        "aadhaar-offline",
+        "offline-ekyc",
+        "paperless-kyc",
+        "ekyc",
+        "kyc",
+        "uidai",
+        "secure-qr",
+        "aadhaar-qr",
+        "xml-signature",
+        "verhoeff",
+        "india",
+        "fintech"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/itxshakil/aadhaar-offline",
+    "authors": [
+        {
+            "name": "Shakil Alam",
+            "email": "itxshakil@gmail.com",
+            "homepage": "https://github.com/itxshakil",
+            "role": "Developer"
+        }
+    ],
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/itxshakil"
+        },
+        {
+            "type": "paypal",
+            "url": "https://paypal.me/itxshakil"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "ext-dom": "*",
+        "ext-libxml": "*",
+        "ext-openssl": "*",
+        "ext-zip": "*",
+        "ext-zlib": "*",
+        "robrichards/xmlseclibs": "^4.0"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^2.0",
+        "phpstan/phpstan-deprecation-rules": "^2.0",
+        "phpstan/phpstan-strict-rules": "^2.0",
+        "laravel/pint": "^1.0",
+        "phpunit/phpunit": "^11.0|^12.0",
+        "rector/rector": "^2.0"
+    },
+    "suggest": {
+        "ext-fileinfo": "Accurate MIME detection for the resident photo",
+        "itxshakil/laravel-aadhaar-offline": "Laravel integration: facade, validation rules, Artisan commands, events and a test fake"
+    },
+    "autoload": {
+        "psr-4": {
+            "Shakil\\AadhaarOffline\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Shakil\\AadhaarOffline\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "test:real": "phpunit --testsuite Real",
+        "test:coverage": "phpunit --coverage-clover build/coverage/clover.xml --coverage-html build/coverage/html",
+        "analyse": "phpstan analyse --memory-limit=1G",
+        "rector": "rector process",
+        "lint:fix": [
+            "@rector",
+            "pint --dirty"
+        ],
+        "lint": [
+            "@analyse",
+            "pint --test --parallel"
+        ],
+        "qa": [
+            "@lint",
+            "@test"
+        ]
+    },
+    "scripts-descriptions": {
+        "test": "Run the PHPUnit test suite",
+        "test:real": "Run the opt-in tests against a real Offline e-KYC file (see tests/Real)",
+        "rector": "Run Rector to automatically refactor and modernise code",
+        "test:coverage": "Run the PHPUnit test suite with code coverage reporting",
+        "analyse": "Run static analysis using PHPStan",
+        "lint:fix": "Automatically fix code style issues using Rector and Laravel Pint",
+        "lint": "Run static analysis and code style checks without modifying files",
+        "qa": "Run full quality assurance checks (lint + tests)"
+    },
+    "support": {
+        "issues": "https://github.com/itxshakil/aadhaar-offline/issues",
+        "source": "https://github.com/itxshakil/aadhaar-offline",
+        "docs": "https://github.com/itxshakil/aadhaar-offline/tree/main/docs",
+        "security": "https://github.com/itxshakil/aadhaar-offline/security/advisories/new"
+    },
+    "minimum-stability": "stable",
+    "config": {
+        "sort-packages": true
+    }
+}

@@ -1,0 +1,60 @@
+name-template: "v$RESOLVED_VERSION"
+tag-template: "v$RESOLVED_VERSION"
+
+# The next version and the release-note sections come from intent labels, applied
+# by hand: a path says where a change is (see labeler.yml), not what it does.
+version-resolver:
+    major:
+        labels:
+            - breaking-change
+    minor:
+        labels:
+            - feature
+    patch:
+        labels:
+            - bug
+            - security
+    default: patch
+
+categories:
+    - title: "⚠️ Breaking Changes"
+      labels:
+          - breaking-change
+
+    - title: "🔐 Security"
+      labels:
+          - security
+
+    - title: "🚀 New Features"
+      labels:
+          - feature
+
+    - title: "🐛 Bug Fixes"
+      labels:
+          - bug
+
+    - title: "⬆️ Dependencies"
+      labels:
+          - dependencies
+
+    - title: "📚 Documentation"
+      labels:
+          - documentation
+
+    - title: "🧹 Maintenance"
+      collapse-after: 5
+      labels:
+          - tests
+          - ci
+          - tooling
+          - meta
+
+change-template: "- $TITLE (#$NUMBER) @$AUTHOR"
+
+template: |
+    ## Changes
+
+    $CHANGES
+
+exclude-labels:
+    - skip-changelog

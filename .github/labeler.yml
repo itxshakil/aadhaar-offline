@@ -1,0 +1,67 @@
+core:
+    - changed-files:
+          - any-glob-to-any-file:
+                - src/OfflineKycReader.php
+                - src/Contracts/**
+                - src/Data/**
+                - src/Enums/**
+                - src/Exceptions/**
+
+verification:
+    - changed-files:
+          - any-glob-to-any-file:
+                - src/Security/**
+
+parsing:
+    - changed-files:
+          - any-glob-to-any-file:
+                - src/Parsers/**
+
+validation:
+    - changed-files:
+          - any-glob-to-any-file:
+                - src/Support/**
+
+tests:
+    - changed-files:
+          - any-glob-to-any-file:
+                - tests/**
+                - src/Testing/**
+                - phpunit.xml.dist
+
+documentation:
+    - changed-files:
+          - any-glob-to-any-file:
+                - README.md
+                - docs/**
+
+ci:
+    - changed-files:
+          - any-glob-to-any-file:
+                - .github/workflows/**
+                - .github/labeler.yml
+
+tooling:
+    - changed-files:
+          - any-glob-to-any-file:
+                - rector.php
+                - phpstan.neon
+                - pint.json
+                - .editorconfig
+
+dependencies:
+    - changed-files:
+          - any-glob-to-any-file:
+                - composer.json
+
+meta:
+    - changed-files:
+          - any-glob-to-any-file:
+                - .github/**
+                - .gitignore
+                - .gitattributes
+
+# These are area labels for triage only. Release notes and the next version come
+# from intent labels applied by hand (see release-drafter.yml): feature, bug,
+# security, breaking-change, skip-changelog. A path says where a change is, not
+# what it does: a refactor in src/Security is not a security fix.
