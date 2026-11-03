@@ -18,6 +18,8 @@ updates:
   # and always wait for a human: xmlseclibs does the signature checking.
   - package-ecosystem: composer
     directory: /
+    # Widen ranges instead of replacing them, or a major bump drops support for older PHP.
+    versioning-strategy: widen
     schedule:
       interval: monthly
     labels:
